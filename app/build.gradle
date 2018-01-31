@@ -4,64 +4,6 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
-apply plugin: 'maven-publish'
-
-apply plugin: 'com.jfrog.bintray'
-
-bintray {
-    user = System.getenv("MAVEN_USER")
-    key = System.getenv("MAVEN_API")
-    pkg {
-        repo = 'KXMLParser'
-        name = 'kxmlparser'
-        licenses = ['MIT']
-        vcsUrl = 'https://github.com/HirogaKatageri/KotlinXMLParser'
-        version {
-            name = '1.0.4.1'
-        }
-    }
-    publications = ['MyPublication']
-}
-
-def pomConfig = {
-    licenses {
-        license {
-            name "MIT License"
-            url "https://github.com/HirogaKatageri/KotlinXMLParser/blob/aar/LICENSE"
-            distribution "repo"
-        }
-    }
-    developers {
-        developer {
-            id "HirogaKatageri"
-            name "Gian Patrick Quintana"
-            email "gianpatrick27@gmail.com"
-        }
-    }
-
-    scm {
-        url "https://github.com/HirogaKatageri"
-    }
-}
-
-publishing {
-    publications {
-        MyPublication(MavenPublication) {
-            artifact("build/outputs/aar/app-release.aar")
-            groupId 'com.silverlotus.kxmlparser'
-            artifactId 'kxmlparser'
-            version '1.0.4.1'
-            pom.withXml {
-                def root = asNode()
-                root.appendNode('description', 'KotlinXMLParser is a library to map XML to an object or convert object to XML')
-                root.appendNode('name', 'KXMLParser')
-                root.appendNode('url', 'https://github.com/HirogaKatageri/KotlinXMLParser')
-                root.children().last() + pomConfig
-            }
-        }
-    }
-}
-
 android {
     compileSdkVersion 27
     defaultConfig {
