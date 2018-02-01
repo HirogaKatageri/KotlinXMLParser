@@ -1,14 +1,22 @@
-# KotlinXMLParser 1.0.4.1 (Ported from [Kongsin](https://github.com/kongsin/KotlinXMLParser) develop branch)
-##### KotlinXMLParser is a library to map XML to an object or convert object to XML
+# KotlinXMLParser 1.0.4.1 (ported from [Kongsin](https://github.com/kongsin/KotlinXMLParser))
+**KotlinXMLParser is a library to map XML to an object or convert an object to XML**
 
-### Feature
-- Map XML to Object
-- Convert Object to XML String
-- Stream XML from URL and map to object
+## Features
+* Map XML to Object
+* Convert Object to XML String
+* Stream XML from URL and Map to Object
 
-### There have XML string need to map to object
-```Kotlin
-var xml = "<bookstore>\n" +
+## How to import
+
+**Add the following in your project's gradle**
+
+
+**Add the following in your module's gradle**
+
+
+### XML String is required to map into an object
+    Kotlin
+    var xml = "<bookstore>\n" +
         "  <book category=\"children\">\n" +
         "    <title>Harry Potter</title>\n" +
         "    <author>J K. Rowling</author>\n" +
@@ -24,48 +32,50 @@ var xml = "<bookstore>\n" +
         "  </book>\n" +
         "</bookstore>";
 
-```
-### Bookstore object. must declare field name same with tag name that you need to map.
+### An Object's name must be the same as the tag name
 
-```Kotlin
-class Bookstore {
-    @JvmField var book: Array<Book>? = null
-}
+**Kotlin**
 
-```
-### Book object for store book detail.
-```Kotlin
-class Book {
-    @JvmField var title: String? = null
-    @JvmField var author: String? = null
-    @JvmField var year: String? = null
-    @JvmField var price: String? = null
-}
+    class Bookstore {
+        @JvmField var book: Array<Book>? = null
+    }
 
-```
-### Lets go to map XML to object jsut very easy just one line.
-```Kotlin
-var book = XMLParser().fromXML(xml, Bookstore()) as Bookstore
 
-// Print object to see the result
-book.book!!.forEach {  book ->
-    println("---------------------")
-    println("TITLE : " + book.title)
-    println("AUTHOR : " + book.author)
-    println("YEAR : " + book.year)
-    println("PRICE : " + book.price)
-}
-```
-### Below is the result that show in display
-```
----------------------
-TITLE : Harry Potter
-AUTHOR : K. Kongsin
-YEAR : 2005
-PRICE : 29.99
----------------------
-TITLE : Learning XML
-AUTHOR : Erik T. Ray
-YEAR : 2003
-PRICE : 39.95
-```
+### Another Object for the book details
+
+**Kotlin**
+
+    class Book {
+        @JvmField var title: String? = null
+        @JvmField var author: String? = null
+        @JvmField var year: String? = null
+        @JvmField var price: String? = null
+    }
+
+### Here is how you map the XML to an object
+
+**Kotlin**
+
+    var book = XMLParser().fromXML(xml, Bookstore()) as Bookstore
+
+    // Print object to see the result
+    book.book!!.forEach {  book ->
+        println("---------------------")
+        println("TITLE : " + book.title)
+        println("AUTHOR : " + book.author)
+        println("YEAR : " + book.year)
+        println("PRICE : " + book.price)
+    }
+
+### Result
+
+    ---------------------
+    TITLE : Harry Potter
+    AUTHOR : K. Kongsin
+    YEAR : 2005
+    PRICE : 29.99
+    ---------------------
+    TITLE : Learning XML
+    AUTHOR : Erik T. Ray
+    YEAR : 2003
+    PRICE : 39.95
