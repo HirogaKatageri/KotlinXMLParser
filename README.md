@@ -10,9 +10,16 @@
 
 **Add the following in your project's gradle**
 
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
 
 **Add the following in your module's gradle**
 
+    dependencies {
+	    implementation 'com.github.HirogaKatageri:KotlinXMLParser:aar-SNAPSHOT'
+	}
 
 ### XML String is required to map into an object
     Kotlin
