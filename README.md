@@ -1,4 +1,5 @@
-# KotlinXMLParser 1.0.4.1 (ported from [Kongsin](https://github.com/kongsin/KotlinXMLParser))
+[![](https://jitpack.io/v/HirogaKatageri/KotlinXMLParser.svg)](https://jitpack.io/#HirogaKatageri/KotlinXMLParser)
+# KotlinXMLParser 1.0.4.2 (ported from [Kongsin](https://github.com/kongsin/KotlinXMLParser))
 **KotlinXMLParser is a library to map XML to an object or convert an object to XML**
 
 ## Features
@@ -18,7 +19,7 @@
 **Add the following in your module's gradle**
 
     dependencies {
-	    implementation 'com.github.HirogaKatageri:KotlinXMLParser:aar-SNAPSHOT'
+	    implementation 'com.github.HirogaKatageri:KotlinXMLParser:1.0.4.2'
 	}
 
 ### XML String is required to map into an object
